@@ -1,0 +1,70 @@
+{
+  "info": {
+    "name": "Shipbuilding Express Lab",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET all ship cards",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/stocks"
+      }
+    },
+    {
+      "name": "GET ship cards by title",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/stocks?title=Фрегат"
+      }
+    },
+    {
+      "name": "GET ship card by id",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/stocks/1"
+      }
+    },
+    {
+      "name": "POST create ship card",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"src\": \"https://example.com/state-ship.jpg\",\n  \"title\": \"Государственный ледокол L-4\",\n  \"text\": \"Карточка нового государственного заказа на производство ледокола для северных маршрутов.\"\n}"
+        },
+        "url": "http://localhost:3000/stocks"
+      }
+    },
+    {
+      "name": "PATCH update ship card",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Государственный ледокол L-4 обновлен\",\n  \"text\": \"Обновленная карточка заказа после согласования технических требований.\"\n}"
+        },
+        "url": "http://localhost:3000/stocks/5"
+      }
+    },
+    {
+      "name": "DELETE ship card",
+      "request": {
+        "method": "DELETE",
+        "url": "http://localhost:3000/stocks/5"
+      }
+    }
+  ]
+}

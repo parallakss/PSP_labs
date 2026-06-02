@@ -1,0 +1,17 @@
+node_modules/
+lab*/node_modules/
+
+dist/
+public/
+lab*/dist/
+lab*/public/
+
+.DS_Store
+.env
+.env.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.vite/

@@ -1,0 +1,16 @@
+{
+  "name": "shipbuilding-express-lab",
+  "version": "1.0.0",
+  "description": "Express REST API and static site for a shipbuilding production lab",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
