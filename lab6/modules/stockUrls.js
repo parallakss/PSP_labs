@@ -1,6 +1,6 @@
 class StockUrls {
   constructor() {
-    this.baseUrl = window.location.port === '5173' ? 'http://localhost:3000' : '';
+    this.baseUrl = window.location.port === '5173' ? 'http://localhost:3001' : '';
   }
 
   getStocks(title = '') {

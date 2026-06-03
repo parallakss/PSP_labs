@@ -6,15 +6,15 @@ const init = (filePath) => {
   dataFilePath = filePath;
 };
 
-const findAll = (title) => {
+const findAll = ({ title, text } = {}) => {
   const stocks = fileService.readData(dataFilePath);
-  if (!title) {
-    return stocks;
-  }
 
-  return stocks.filter((stock) =>
-    stock.title.toLowerCase().includes(title.toLowerCase())
-  );
+  return stocks.filter((stock) => {
+    const matchesTitle = !title || stock.title.toLowerCase().includes(title.toLowerCase());
+    const matchesText = !text || stock.text.toLowerCase().includes(text.toLowerCase());
+
+    return matchesTitle && matchesText;
+  });
 };
 
 const findOne = (id) => {

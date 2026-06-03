@@ -4,7 +4,7 @@ const stocksRouter = require('./routes/stocks');
 const stocksService = require('./services/stocksService');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const DATA_FILE_PATH = path.join(__dirname, 'data/stocks.json');
 const PUBLIC_DIR = path.join(__dirname, '..');
 const BUILD_DIR = path.join(PUBLIC_DIR, 'public');

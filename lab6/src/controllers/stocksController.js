@@ -1,8 +1,8 @@
 const stocksService = require('../services/stocksService');
 
 const getAllStocks = (req, res) => {
-  const { title } = req.query;
-  const stocks = stocksService.findAll(title);
+  const { title, text } = req.query;
+  const stocks = stocksService.findAll({ title, text });
   res.json(stocks);
 };
 
