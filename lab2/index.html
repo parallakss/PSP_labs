@@ -8,14 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="site.css">
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-        "three/examples/jsm/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-      }
-    }
-  </script>
 </head>
 <body>
   <header class="site-header">
@@ -25,7 +17,6 @@
         <a href="#">ГЛАВНАЯ</a>
         <a href="#specialty">ПРОИЗВОДСТВО</a>
         <a href="#services">УСЛУГИ</a>
-        <a href="#ship3d">3D-МОДЕЛЬ</a>
         <a href="#calculator">КАЛЬКУЛЯТОР</a>
         <a href="#applications">ЗАЯВКИ</a>
         <a href="#contacts">КОНТАКТЫ</a>
@@ -42,7 +33,6 @@
           <p class="hero-description">Полный цикл: инженерная разработка, строительство, испытания и сервисное сопровождение кораблей разных классов.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#calculator">Калькулятор</a>
-            <a class="button button-secondary" href="#ship3d">3D-модель</a>
             <a class="button button-secondary" href="#specialty">Узнать больше</a>
           </div>
         </div>
@@ -109,16 +99,6 @@
               <button class="service-link" type="button">Подробнее</button>
             </div>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="ship3d" class="section section-secondary">
-      <div class="container">
-        <h2 class="section-title">3D Модель Корабля</h2>
-        <p class="text-default">Интерактивный просмотр: вращение, масштабирование и обзор корпуса в реальном времени.</p>
-        <div class="ship-viewer-card">
-          <canvas id="ship-canvas" class="ship-viewer" aria-label="3D модель корабля"></canvas>
         </div>
       </div>
     </section>
@@ -259,7 +239,6 @@
       <p id="service-modal-description" class="service-modal__description"></p>
     </div>
   </div>
-  <script type="module" src="ship3d.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
