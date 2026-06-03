@@ -1,0 +1,69 @@
+const fileService = require('./fileService');
+
+let dataFilePath;
+
+const init = (filePath) => {
+  dataFilePath = filePath;
+};
+
+const findAll = ({ title, text } = {}) => {
+  const stocks = fileService.readData(dataFilePath);
+
+  return stocks.filter((stock) => {
+    const matchesTitle = !title || stock.title.toLowerCase().includes(title.toLowerCase());
+    const matchesText = !text || stock.text.toLowerCase().includes(text.toLowerCase());
+
+    return matchesTitle && matchesText;
+  });
+};
+
+const findOne = (id) => {
+  const stocks = fileService.readData(dataFilePath);
+  return stocks.find((stock) => stock.id === id);
+};
+
+const create = (stockData) => {
+  const stocks = fileService.readData(dataFilePath);
+  const newId = stocks.length > 0 ? Math.max(...stocks.map((stock) => stock.id)) + 1 : 1;
+  const newStock = { id: newId, ...stockData };
+
+  stocks.push(newStock);
+  fileService.writeData(dataFilePath, stocks);
+
+  return newStock;
+};
+
+const update = (id, stockData) => {
+  const stocks = fileService.readData(dataFilePath);
+  const index = stocks.findIndex((stock) => stock.id === id);
+
+  if (index === -1) {
+    return null;
+  }
+
+  stocks[index] = { ...stocks[index], ...stockData, id };
+  fileService.writeData(dataFilePath, stocks);
+
+  return stocks[index];
+};
+
+const remove = (id) => {
+  const stocks = fileService.readData(dataFilePath);
+  const filteredStocks = stocks.filter((stock) => stock.id !== id);
+
+  if (filteredStocks.length === stocks.length) {
+    return false;
+  }
+
+  fileService.writeData(dataFilePath, filteredStocks);
+  return true;
+};
+
+module.exports = {
+  init,
+  findAll,
+  findOne,
+  create,
+  update,
+  remove,
+};
